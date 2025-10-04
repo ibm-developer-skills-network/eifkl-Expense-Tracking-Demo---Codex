@@ -1,26 +1,34 @@
-# model = "watsonx/meta-llama/llama-4-maverick-17b-128e-instruct-fp8"
-model_provider = "watsonx"
+### For details see: https://github.com/openai/codex/blob/main/docs/config.md
 
+model_provider = "watsonx"
 profile = "gptoss"
 
-sandbox_mode = "workspace-write"
-
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
 tools.web_search = true
 
-[projects."/Users/bradley/Code/github.com/techxchange"]
+[projects."/home/project/eifkl-Expense-Tracking-Demo---Codex"]
 trust_level = "trusted"
 
+##
+## OpenAI providers
+##
 
-[model_providers.openai]
+[model_providers.sn-openai]
 name = "OpenAI"
 base_url = "https://api.openai.com/v1"
 env_key = "OPENAI_API_KEY"
 http_headers = { "SN-Event" = "techxchange2025" }
-# network tuning overrides (all optional; falls back to built‑in defaults)
-# request_max_retries = 4            # retry failed HTTP requests
-# stream_max_retries = 10            # retry dropped SSE streams
-# stream_idle_timeout_ms = 300000    # 5m idle timeout
+wire_api = "responses"
 
+[profiles.gpt-5-mini]
+model = "gpt-5-mini"
+model_provider = "sn-openai"
+# model_reasoning_effort = "low"
+
+##
+## watsonx providers
+##
 
 [model_providers.watsonx]
 name = "watsonx"
@@ -30,26 +38,15 @@ http_headers = { "SN-Event" = "techxchange2025" }
 [profiles.llama4]
 model = "watsonx/meta-llama/llama-4-maverick-17b-128e-instruct-fp8"
 model_provider = "watsonx"
-approval_policy = "never"
 
 [profiles.granite3]
 model = "watsonx/ibm/granite-3-3-8b-instruct"
 model_provider = "watsonx"
-approval_policy = "never"
 
 [profiles.granite4]
 model = "watsonx/ibm/granite-4-h-small"
 model_provider = "watsonx"
-approval_policy = "never"
 
 [profiles.gptoss]
 model = "watsonx/openai/gpt-oss-120b"
 model_provider = "watsonx"
-approval_policy = "never"
-
-
-
-
-[projects."/home/project/demo-expense-tracking"]
-trust_level = "trusted"
-
