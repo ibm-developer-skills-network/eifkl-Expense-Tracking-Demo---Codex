@@ -1,0 +1,55 @@
+# model = "watsonx/meta-llama/llama-4-maverick-17b-128e-instruct-fp8"
+model_provider = "watsonx"
+
+profile = "gptoss"
+
+sandbox_mode = "workspace-write"
+
+tools.web_search = true
+
+[projects."/Users/bradley/Code/github.com/techxchange"]
+trust_level = "trusted"
+
+
+[model_providers.openai]
+name = "OpenAI"
+base_url = "https://api.openai.com/v1"
+env_key = "OPENAI_API_KEY"
+http_headers = { "SN-Event" = "techxchange2025" }
+# network tuning overrides (all optional; falls back to built‑in defaults)
+# request_max_retries = 4            # retry failed HTTP requests
+# stream_max_retries = 10            # retry dropped SSE streams
+# stream_idle_timeout_ms = 300000    # 5m idle timeout
+
+
+[model_providers.watsonx]
+name = "watsonx"
+base_url = "http://0.0.0.0:4000"
+http_headers = { "SN-Event" = "techxchange2025" }
+
+[profiles.llama4]
+model = "watsonx/meta-llama/llama-4-maverick-17b-128e-instruct-fp8"
+model_provider = "watsonx"
+approval_policy = "never"
+
+[profiles.granite3]
+model = "watsonx/ibm/granite-3-3-8b-instruct"
+model_provider = "watsonx"
+approval_policy = "never"
+
+[profiles.granite4]
+model = "watsonx/ibm/granite-4-h-small"
+model_provider = "watsonx"
+approval_policy = "never"
+
+[profiles.gptoss]
+model = "watsonx/openai/gpt-oss-120b"
+model_provider = "watsonx"
+approval_policy = "never"
+
+
+
+
+[projects."/home/project/demo-expense-tracking"]
+trust_level = "trusted"
+
