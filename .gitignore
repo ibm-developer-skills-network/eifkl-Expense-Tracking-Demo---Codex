@@ -2,3 +2,7 @@ node_modules
 dist
 *.db
 .DS_Store
+
+# Codex configuration
+codex/
+!codex/config.toml

@@ -1,15 +1,31 @@
 ### For details see: https://github.com/openai/codex/blob/main/docs/config.md
 
-model_provider = "watsonx"
-profile = "gptoss"
-
 ##
-## General permission configurations
+## General configurations
 ##
 
+# OS sandbox policy
+# read-only | workspace-write | danger-full-access
 sandbox_mode = "danger-full-access"
+
+# When to prompt for approval.
+# untrusted | on-failure | on-request | never
 approval_policy = "never"
+
+# Enable web search tool
 tools.web_search = true
+
+##
+## MCP Configurations
+##
+
+# Streamable HTTP requires the experimental rmcp client
+experimental_use_rmcp_client = true
+
+# # Context7 - Up-to-date library and framework documentation
+# [mcp_servers.context7]
+# url = "https://mcp.context7.com/mcp"
+
 
 ##
 ## Project/folder permissions
@@ -42,6 +58,26 @@ model_provider = "sn-openai"
 [profiles.gpt-5-nano]
 model = "gpt-5-nano"
 model_provider = "sn-openai"
+
+[profiles.gpt-5-codex-minimal]
+model = "gpt-5-codex"
+model_provider = "sn-openai"
+model_reasoning_effort = "minimal"
+
+[profiles.gpt-5-codex-low]
+model = "gpt-5-codex"
+model_provider = "sn-openai"
+model_reasoning_effort = "low"
+
+[profiles.gpt-5-codex-medium]
+model = "gpt-5-codex"
+model_provider = "sn-openai"
+model_reasoning_effort = "medium"
+
+[profiles.gpt-5-codex-high]
+model = "gpt-5-codex"
+model_provider = "sn-openai"
+model_reasoning_effort = "high"
 
 ##
 ## watsonx providers
