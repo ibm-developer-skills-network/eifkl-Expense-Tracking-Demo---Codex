@@ -86,20 +86,20 @@ model_reasoning_effort = "high"
 [model_providers.watsonx]
 name = "watsonx"
 base_url = "http://0.0.0.0:4000"
-http_headers = { "SN-Event" = "techxchange2025" }
+http_headers = { "X-SN-Event" = "techxchange2025" }
 
-[profiles.llama4]
+[profiles.llama-4]
 model = "watsonx/meta-llama/llama-4-maverick-17b-128e-instruct-fp8"
 model_provider = "watsonx"
 
-[profiles.granite3]
+[profiles.granite-3]
 model = "watsonx/ibm/granite-3-3-8b-instruct"
 model_provider = "watsonx"
 
-[profiles.granite4]
+[profiles.granite-4]
 model = "watsonx/ibm/granite-4-h-small"
 model_provider = "watsonx"
 
-[profiles.gptoss]
+[profiles.gpt-oss]
 model = "watsonx/openai/gpt-oss-120b"
 model_provider = "watsonx"
