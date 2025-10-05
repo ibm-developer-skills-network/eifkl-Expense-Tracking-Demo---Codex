@@ -3,10 +3,19 @@
 model_provider = "watsonx"
 profile = "gptoss"
 
+##
+## General permission configurations
+##
+
 sandbox_mode = "danger-full-access"
 approval_policy = "never"
 tools.web_search = true
 
+##
+## Project/folder permissions
+##
+
+# Trust the folder we will be working in during this lab
 [projects."/home/project/eifkl-Expense-Tracking-Demo---Codex"]
 trust_level = "trusted"
 
@@ -21,10 +30,18 @@ env_key = "OPENAI_API_KEY"
 http_headers = { "SN-Event" = "techxchange2025" }
 wire_api = "responses"
 
+[profiles.gpt-5]
+model = "gpt-5"
+model_provider = "sn-openai"
+model_reasoning_effort = "low"
+
 [profiles.gpt-5-mini]
 model = "gpt-5-mini"
 model_provider = "sn-openai"
-# model_reasoning_effort = "low"
+
+[profiles.gpt-5-nano]
+model = "gpt-5-nano"
+model_provider = "sn-openai"
 
 ##
 ## watsonx providers
